@@ -1,6 +1,7 @@
 # John's Farm
 
-Check it out at [https://exaphis.github.io/johns-farm/](https://exaphis.github.io/johns-farm/)
+Check it out at [https://farmerjohns.tech/](https://farmerjohns.tech/) or
+[https://exaphis.github.io/johns-farm/](https://exaphis.github.io/johns-farm/).
 
 ## Inspiration
 
