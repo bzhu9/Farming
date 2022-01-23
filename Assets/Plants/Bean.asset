@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0450f695fafac44518fbc6299a4af5eb, type: 3}
   m_Name: Bean
   m_EditorClassIdentifier: 
-  plantName: Bean
+  plantName: Beans
   plantStages: []
   timeBetweenStages: 5
   price: 7
