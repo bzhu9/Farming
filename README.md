@@ -8,7 +8,7 @@ We were inspired to create a fun, yet challenging, strategy game to simulate gro
 
 ## Purpose
 
-The purpose of John's Farm is to simualate the different factors that go into real farming through a simpler, compact game. Despite having a fraction of the different factors that come along with maintaining a farm, John's Farm is already complex to a point where it is hard to establish a clear decision or strategy from the get go. This allows us to demonstrate the many different calculations that companies like John Deere need to go through to optimize their equipment.
+The purpose of John's Farm is to simulate the different factors that go into real farming through a simpler, compact game. Despite having a fraction of the different factors that come along with maintaining a farm, John's Farm is already complex to a point where it is hard to establish a clear decision or strategy from the get go. This allows us to demonstrate the many different calculations that companies like John Deere need to go through to optimize their equipment.
 
 ## How we built it
 
@@ -20,7 +20,7 @@ We built this game entirely using Unity, which we were unfamiliar with at the be
 
 ## Accomplishments and what we learned
 
-We are proud of how the final UI of the game came out. It fit the retro vibe of our game and the graphics ran smoothly to present our final product. Without knowing much unity coming in to Boillermake, we are happy with the complexity and overall aesthetic we were able to introduce into the game.
+We are proud of how the final UI of the game came out. It fit the retro vibe of our game and the graphics ran smoothly to present our final product. Without knowing much unity coming in to Boilermake, we are happy with the complexity and overall aesthetic we were able to introduce into the game.
 
 ## What's next
 
