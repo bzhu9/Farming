@@ -13,6 +13,10 @@ public class PlantItem : MonoBehaviour
     public Image icon;
     private GameController gc;
 
+    public Texture2D cursorTexture;
+    public CursorMode cursorMode = CursorMode.Auto;
+    public Vector2 hotSpot = Vector2.one;
+
 
 
     // Start is called before the first frame update
@@ -30,13 +34,24 @@ public class PlantItem : MonoBehaviour
         Debug.Log("Bought " + plant.plantName);
         if (plant.plantName == "Corn") {
             gc.selectedPlant = TileType.CORN;
+            Texture2D newCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/cursors/corn_cursor.png");
+            hotSpot = new Vector2(24, 24);
+            cursorTexture = newCursor;
         }
-        else if (plant.plantName == "Bean") {
+        else if (plant.plantName == "Beans") {
             gc.selectedPlant = TileType.BEANS;
+            Texture2D newCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/cursors/beans_cursor.png");
+            hotSpot = new Vector2(24, 24);
+            cursorTexture = newCursor;
         }
         else if (plant.plantName == "Rice") {
             gc.selectedPlant = TileType.RICE;
+            Texture2D newCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/cursors/rice_cursor.png");
+            hotSpot = new Vector2(24, 24);
+            cursorTexture = newCursor;
         }
+
+        Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);
 
     }
 }

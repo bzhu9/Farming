@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameController : MonoBehaviour
 {
@@ -95,6 +96,16 @@ public class GameController : MonoBehaviour
             {
                 GameObject bgTile = Instantiate(bgTilePrefab) as GameObject;
                 bgTile.transform.position = new Vector3(startX + r * size, startY + c * size, 1);
+                
+                // // add onclick
+                // bgTile.AddComponent(typeof(EventTrigger));
+                // EventTrigger trigger = bgTile.GetComponent<EventTrigger>();
+                // EventTrigger.Entry entry = new EventTrigger.Entry();
+                // entry.eventID = EventTriggerType.PointerClick;
+                // entry.callback.AddListener( (eventData) => {
+                //     backgroundClick();
+                // });
+                // trigger.triggers.Add(entry);
             }
         }
 
@@ -342,5 +353,11 @@ public class GameController : MonoBehaviour
     {
         money += value;
         moneyText.text = money.ToString("c2");
+    }
+
+    public void backgroundClick()
+    {
+        Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
+        selectedPlant = TileType.EMPTY;
     }
 }
