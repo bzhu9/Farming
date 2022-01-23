@@ -32,23 +32,61 @@ public class PlantItem : MonoBehaviour
     public void buyPlant()
     {
         Debug.Log("Bought " + plant.plantName);
+
         if (plant.plantName == "Corn") {
-            gc.selectedPlant = TileType.CORN;
-            Texture2D newCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/cursors/corn_cursor.png");
-            hotSpot = new Vector2(24, 24);
-            cursorTexture = newCursor;
+            if (gc.cursorState == CursorType.CORN)
+            {
+                Debug.Log("ALSKDJHFAJKSDGFGJKADSJKGADSFASJG");
+                gc.selectedPlant = TileType.EMPTY;
+                gc.cursorState = CursorType.EMPTY;
+                cursorTexture = null;
+                cursorMode = CursorMode.Auto;
+                hotSpot = Vector2.one;
+            }
+            else
+            {
+                gc.selectedPlant = TileType.CORN;
+                gc.cursorState = CursorType.CORN;
+                Texture2D newCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/cursors/corn_cursor.png");
+                hotSpot = new Vector2(24, 24);
+                cursorTexture = newCursor;
+            }
         }
         else if (plant.plantName == "Beans") {
-            gc.selectedPlant = TileType.BEANS;
-            Texture2D newCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/cursors/beans_cursor.png");
-            hotSpot = new Vector2(24, 24);
-            cursorTexture = newCursor;
+            if (gc.cursorState == CursorType.BEANS)
+            {
+                gc.selectedPlant = TileType.EMPTY;
+                gc.cursorState = CursorType.EMPTY;
+                cursorTexture = null;
+                cursorMode = CursorMode.Auto;
+                hotSpot = Vector2.one;
+            }
+            else
+            {
+                gc.selectedPlant = TileType.BEANS;
+                gc.cursorState = CursorType.BEANS;
+                Texture2D newCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/cursors/beans_cursor.png");
+                hotSpot = new Vector2(24, 24);
+                cursorTexture = newCursor;
+            }
         }
         else if (plant.plantName == "Rice") {
-            gc.selectedPlant = TileType.RICE;
-            Texture2D newCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/cursors/rice_cursor.png");
-            hotSpot = new Vector2(24, 24);
-            cursorTexture = newCursor;
+            if (gc.cursorState == CursorType.RICE)
+            {
+                gc.selectedPlant = TileType.EMPTY;
+                gc.cursorState = CursorType.EMPTY;
+                cursorTexture = null;
+                cursorMode = CursorMode.Auto;
+                hotSpot = Vector2.one;
+            }
+            else
+            {
+                gc.selectedPlant = TileType.RICE;
+                gc.cursorState = CursorType.RICE;
+                Texture2D newCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/cursors/rice_cursor.png");
+                hotSpot = new Vector2(24, 24);
+                cursorTexture = newCursor;
+            }
         }
 
         Cursor.SetCursor(cursorTexture, hotSpot, cursorMode);

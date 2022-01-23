@@ -13,17 +13,24 @@ public class GameController : MonoBehaviour
     public const int gridSize = 5;
 
     private float money = 500;
+    private float goal = 700;
     public Text moneyText;
+    public Text goalText;
     public Text cornPriceText;
     public Text beanPriceText;
     public Text ricePriceText;
+    
+
+    //timer
+    public Text timer;
 
     //seeds
     public Text cornSeedPriceText;
     public Text beanSeedPriceText;
     public Text riceSeedPriceText;
 
-    public TileType selectedPlant = TileType.RICE;
+    public TileType selectedPlant = TileType.EMPTY;
+    public CursorType cursorState = CursorType.EMPTY;
 
     private Color newRed = new Color(1, 0.3f, 0.3f);
     private Color newGreen = new Color(0.6f, 1, 0.6f);
@@ -111,6 +118,7 @@ public class GameController : MonoBehaviour
 
         // set initial money amount text
         moneyText.text = money.ToString("c2");
+        goalText.text = goal.ToString("c2");
         cornPriceText.text = "Corn:\n" + prices[TileType.CORN].ToString("c2");
         beanPriceText.text = "Beans:\n" + prices[TileType.BEANS].ToString("c2");
         ricePriceText.text = "Rice:\n" + prices[TileType.RICE].ToString("c2");
@@ -353,6 +361,13 @@ public class GameController : MonoBehaviour
     {
         money += value;
         moneyText.text = money.ToString("c2");
+        if (money >= goal)
+        {
+            // TODO: CONGRATULATIONS
+            string endTime = timer.text;
+            Debug.Log("Congratulations!");
+            Debug.Log(endTime);
+        }
     }
 
     public void backgroundClick()

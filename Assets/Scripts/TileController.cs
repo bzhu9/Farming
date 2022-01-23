@@ -12,6 +12,14 @@ public enum TileType
     BEANS
 }
 
+[System.Serializable]
+public enum CursorType
+{
+    EMPTY,
+    RICE,
+    CORN,
+    BEANS
+}
 
 public class TileController : MonoBehaviour
 {
