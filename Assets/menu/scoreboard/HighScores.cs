@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class HighScores : MonoBehaviour
 {
+    // to whoever is reading this: please don't mess with the leaderboards :(
     const string privateCode = "YShytfTIzUqtT0os8ZqmQwZfIJVkM1a0aEynvVpl6u3g";  //Key to Upload New Info
     const string publicCode = "61ecd8fb8f40bb1244005b01";   //Key to download
-    const string webURL = "http://dreamlo.com/lb/"; //  Website the keys are for
+    const string webURL = "https://dreamlo.exaphis.workers.dev/lb/"; //  Website the keys are for
 
     public PlayerScore[] scoreList;
     DisplayHighscores myDisplay;
