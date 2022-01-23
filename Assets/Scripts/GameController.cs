@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     public Text cornPriceText;
     public Text beanPriceText;
     public Text ricePriceText;
-    
+
     //seeds
     public Text cornSeedPriceText;
     public Text beanSeedPriceText;
@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
     public TileType selectedPlant = TileType.RICE;
 
     private Color newRed = new Color(1, 0.3f, 0.3f);
-    private Color newGreen  = new Color(0.6f, 1, 0.6f);
+    private Color newGreen = new Color(0.6f, 1, 0.6f);
 
     private Dictionary<TileType, float> prices = new Dictionary<TileType, float>()
     {
@@ -141,11 +141,11 @@ public class GameController : MonoBehaviour
             float dt = Time.deltaTime;
             currPrice += currPrice * ((mu * dt) + (sigma * RandomGaussian(-1, 1) * Mathf.Sqrt(dt)));
             prices[type] = currPrice;
-            
+
         }
         UpdatePricesText(oldPrices);
     }
-    
+
     void UpdateSeedPrices()
     {
         Dictionary<TileType, float> oldPrices = new Dictionary<TileType, float>()
@@ -160,11 +160,11 @@ public class GameController : MonoBehaviour
             {
                 continue;
             }
-            float priceMultiplier = Random.Range(70, 120)/100f;
-            float currPrice = prices[type]*priceMultiplier/1.4f;
+            float priceMultiplier = Random.Range(70, 120) / 100f;
+            float currPrice = prices[type] * priceMultiplier / 1.4f;
             oldPrices[type] = seedPrices[type];
             seedPrices[type] = currPrice;
-            
+
         }
         UpdateSeedPricesText(oldPrices);
     }
@@ -207,10 +207,17 @@ public class GameController : MonoBehaviour
                 }
 
                 HashSet<(int, int)> group = dfs(r, c);
+                int waterVal = Mathf.Min(group.Count, 5);
+
+                if (group.Count == 0)
+                {
+                    group.Add((r, c));
+                }
+
                 foreach ((int, int) tile in group)
                 {
                     seen[tile.Item1, tile.Item2] = true;
-                    tiles[tile.Item1, tile.Item2].baseAttributes.groupedRice = group.Count;
+                    tiles[tile.Item1, tile.Item2].baseAttributes.water = waterVal;
                 }
             }
         }
@@ -231,7 +238,7 @@ public class GameController : MonoBehaviour
             Invoke("whiteMoney", 0.3f);
             return false;
         }
-        Transaction(-1*seedPrices[type]);
+        Transaction(-1 * seedPrices[type]);
         Debug.Log("Bought " + type + " seed for " + prices[type]);
         Debug.Log("Money: " + money);
         return true;
@@ -242,30 +249,31 @@ public class GameController : MonoBehaviour
         Debug.Log("abc");
     }
 
-    private void UpdatePricesText(Dictionary<TileType, float> oldPrices){
-        if (oldPrices[TileType.CORN] < prices[TileType.CORN]) 
+    private void UpdatePricesText(Dictionary<TileType, float> oldPrices)
+    {
+        if (oldPrices[TileType.CORN] < prices[TileType.CORN])
         {
             cornPriceText.color = newGreen;
         }
-        else 
+        else
         {
             cornPriceText.color = newRed;
         }
         // beans price color
-        if (oldPrices[TileType.BEANS] < prices[TileType.BEANS]) 
+        if (oldPrices[TileType.BEANS] < prices[TileType.BEANS])
         {
             beanPriceText.color = newGreen;
         }
-        else 
+        else
         {
             beanPriceText.color = newRed;
         }
         // rice price color
-        if (oldPrices[TileType.RICE] < prices[TileType.RICE]) 
+        if (oldPrices[TileType.RICE] < prices[TileType.RICE])
         {
             ricePriceText.color = newGreen;
         }
-        else 
+        else
         {
             ricePriceText.color = newRed;
         }
@@ -275,31 +283,32 @@ public class GameController : MonoBehaviour
         Invoke("whiteText", 0.5f);
     }
 
-    private void UpdateSeedPricesText(Dictionary<TileType, float> oldPrices){
+    private void UpdateSeedPricesText(Dictionary<TileType, float> oldPrices)
+    {
         // corn price color
-        if (oldPrices[TileType.CORN] < seedPrices[TileType.CORN]) 
+        if (oldPrices[TileType.CORN] < seedPrices[TileType.CORN])
         {
             cornSeedPriceText.color = newRed;
         }
-        else 
+        else
         {
             cornSeedPriceText.color = newGreen;
         }
         // beans price color
-        if (oldPrices[TileType.BEANS] < seedPrices[TileType.BEANS]) 
+        if (oldPrices[TileType.BEANS] < seedPrices[TileType.BEANS])
         {
             beanSeedPriceText.color = newRed;
         }
-        else 
+        else
         {
             beanSeedPriceText.color = newGreen;
         }
         // rice price color
-        if (oldPrices[TileType.RICE] < seedPrices[TileType.RICE]) 
+        if (oldPrices[TileType.RICE] < seedPrices[TileType.RICE])
         {
             riceSeedPriceText.color = newRed;
         }
-        else 
+        else
         {
             riceSeedPriceText.color = newGreen;
         }

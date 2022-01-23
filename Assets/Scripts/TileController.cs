@@ -26,6 +26,9 @@ public class TileController : MonoBehaviour
     public GameObject sellFx;
     public int row;
     public int col;
+    public SpriteRenderer shadow;
+    public SpriteRenderer water;
+    public RectTransform nitrogenBar;
 
     [HideInInspector]
     public CropController crop;
@@ -34,45 +37,57 @@ public class TileController : MonoBehaviour
 
     public struct TileAttributes
     {
-        public int temperature;  // corn shades neighboring beans
+        public int shade;  // corn shades neighboring beans
         public int nitrogen;  // corn lower nitrogen (are affected), beans increase nitrogen (not affected)
-        public int groupedRice;  // for each rice next to it, the water is increased
+        public int water;  // for each rice in a group, water increases (up to 5)
     }
 
     public TileAttributes baseAttributes;
+    public TileAttributes currAttributes;
 
     // Start is called before the first frame update
     void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         gc = GameObject.Find("GameController").GetComponent<GameController>();
-        baseAttributes.nitrogen = 10;
-        baseAttributes.temperature = 10;
-        baseAttributes.groupedRice = 0;
+        baseAttributes.nitrogen = 0;
+        baseAttributes.shade = 0;
+        baseAttributes.water = 0;
     }
 
 
-    public TileAttributes GetTileAttributes()
+    private void UpdateTileAttributes()
     {
-        TileAttributes ta = baseAttributes;
+        currAttributes = baseAttributes;
 
         foreach ((int, int) neighbor in Utils.GetNeighbors(row, col))
         {
             TileController t = gc.tiles[neighbor.Item1, neighbor.Item2];
             if (t.GetTileType() == TileType.CORN)
             {
-                ta.temperature -= 1;
-                ta.temperature = Math.Max(ta.temperature, 0);
+                currAttributes.shade += 1;
+                currAttributes.shade = Math.Max(currAttributes.shade, 0);
             }
         }
 
-        return ta;
+        Color shadowColor = shadow.color;
+        shadowColor.a = currAttributes.shade / 10f;
+        shadow.color = shadowColor;
+
+
+        Color waterColor = water.color;
+        waterColor.a = currAttributes.water / 10f;
+        water.color = waterColor;
+
+        Vector2 size = nitrogenBar.sizeDelta;
+        size.y = (currAttributes.nitrogen / 3f) * 0.65f;
+        nitrogenBar.sizeDelta = size;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        UpdateTileAttributes();
     }
 
     void OnMouseOver()
@@ -98,10 +113,16 @@ public class TileController : MonoBehaviour
             Debug.Log("crop exists");
             if (crop.isHarvestable())
             {
+                if (crop.type == TileType.CORN)
+                {
+                    baseAttributes.nitrogen = Mathf.Clamp(baseAttributes.nitrogen - 1, 0, 3);
+                }
+
                 gc.SellCrop(crop.type);
                 Destroy(crop.gameObject);
                 Instantiate(sellFx, transform.position, Quaternion.identity);
                 crop = null;
+                gc.UpdateGroupedRice();
             }
 
             return;
@@ -115,6 +136,10 @@ public class TileController : MonoBehaviour
                 if (gc.BuyCrop(crop.type))
                 {
                     cropObject = crop.gameObject;
+                    if (crop.type == TileType.BEANS)
+                    {
+                        baseAttributes.nitrogen = Mathf.Clamp(baseAttributes.nitrogen + 1, 0, 3);
+                    }
                 }
                 break;
             }

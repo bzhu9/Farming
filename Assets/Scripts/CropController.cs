@@ -6,7 +6,7 @@ public class CropController : MonoBehaviour
 {
     public Sprite[] stages;
     public TileType type;
-    public int secondsPerStage = 2;
+    public float secondsPerStage = 2;
     private int currentStage = 0;
     private float secondsLeft;
     SpriteRenderer spriteRenderer;
@@ -17,36 +17,32 @@ public class CropController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         spriteRenderer.sprite = stages[currentStage];
-        secondsLeft = secondsPerStage;
-        UpdateTileBaseAttributes();
-    }
 
-    void UpdateTileBaseAttributes()
-    {
-        TileController tc = GetComponentInParent<TileController>();
-        // TODO
+        UpdateGrowthRate();
+        secondsLeft = secondsPerStage;
     }
 
     void UpdateGrowthRate()
     {
         TileController tc = GetComponentInParent<TileController>();
-        TileController.TileAttributes ta = tc.GetTileAttributes();
+        TileController.TileAttributes ta = tc.currAttributes;
         if (type == TileType.RICE)
         {
-            if (ta.groupedRice >= 5)
-            {
-                secondsPerStage = 1;
-                secondsLeft = Mathf.Min(secondsLeft, secondsPerStage);
-            }
+            secondsPerStage = 3;
+            secondsPerStage -= Mathf.Lerp(0, 1.5f, ta.water / 5f);
         }
         else if (type == TileType.CORN)
         {
-            if (ta.nitrogen > 10)
-            {
-                secondsPerStage = 1;
-                secondsLeft = Mathf.Min(secondsLeft, secondsPerStage);
-            }
+            secondsPerStage = 2;
+            secondsPerStage -= Mathf.Lerp(0, 1, ta.nitrogen / 3f);
         }
+        else if (type == TileType.BEANS)
+        {
+            secondsPerStage = 2;
+            secondsPerStage -= Mathf.Lerp(0, 1, ta.shade / 3f);
+        }
+
+        secondsLeft = Mathf.Min(secondsLeft, secondsPerStage);
     }
 
     void Update()
