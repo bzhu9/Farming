@@ -14,6 +14,7 @@ public class PlantItem : MonoBehaviour
     private GameController gc;
 
     public Texture2D cursorTexture;
+    public Texture2D baseTexture;
     public CursorMode cursorMode = CursorMode.Auto;
     public Vector2 hotSpot = Vector2.one;
 
@@ -47,7 +48,7 @@ public class PlantItem : MonoBehaviour
             {
                 gc.selectedPlant = TileType.CORN;
                 gc.cursorState = CursorType.CORN;
-                Texture2D newCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/cursors/corn_cursor.png");
+                Texture2D newCursor = baseTexture;
                 hotSpot = new Vector2(24, 24);
                 cursorTexture = newCursor;
             }
@@ -65,7 +66,7 @@ public class PlantItem : MonoBehaviour
             {
                 gc.selectedPlant = TileType.BEANS;
                 gc.cursorState = CursorType.BEANS;
-                Texture2D newCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/cursors/beans_cursor.png");
+                Texture2D newCursor = baseTexture;
                 hotSpot = new Vector2(24, 24);
                 cursorTexture = newCursor;
             }
@@ -83,7 +84,7 @@ public class PlantItem : MonoBehaviour
             {
                 gc.selectedPlant = TileType.RICE;
                 gc.cursorState = CursorType.RICE;
-                Texture2D newCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/cursors/rice_cursor.png");
+                Texture2D newCursor = baseTexture;
                 hotSpot = new Vector2(24, 24);
                 cursorTexture = newCursor;
             }

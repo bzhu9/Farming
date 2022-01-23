@@ -1,9 +1,9 @@
 # John's Farm
 ## Inspiration
-Being involved in the greater Purdue community as well as the smaller communities is an integral part of college life here at Purdue. With FantasyPurdue, we bring both scopes of community and created a fun competition to help promote more involvement. We bring out the competitive side of things by introducing our virtual currency PeteCoins, and leaving the prizes and favors up to the league participants.
+We were inspired by the man John Deere himself! His hard work for the farming industry inspirited us to create our very own farming game, called John's Farm, to commemorate him.
 
 ## Purpose
-We wanted the Purdue community to get involved in a fun, interesting way. Users are able to create a league with their friends and compete in challenges daily together to earn PeteCoin through our challenge simulator. The winner is determined by the player who has the most PeteCoin, and he or she gets a favor from the player with the least PeteCoin. And the cycle continues!
+We wanted to create a fun, yet challenging, strategy game to simulate grrowing crops on a farm. 
 
 ## How we built it
 We designed our webpage with HTML, CSS, and Javascript. With python's Django framework, we served a SQLite database, which stores all the information for user login/registration and PeteCoin leaderboards. To query results from the SQLite database, we configured Django functions to read and write data to the local database.

@@ -827,7 +827,8 @@ MonoBehaviour:
   nameText: {fileID: 290636438}
   priceText: {fileID: 290636437}
   icon: {fileID: 290636439}
-  cursorTexture: {fileID: 0}
+  cursorTexture: {fileID: 2800000, guid: bdd1fe249e4394dbeae988c81b462c70, type: 3}
+  baseTexture: {fileID: 2800000, guid: bdd1fe249e4394dbeae988c81b462c70, type: 3}
   cursorMode: 0
   hotSpot: {x: 1, y: 1}
 --- !u!1 &352578560
@@ -973,7 +974,8 @@ MonoBehaviour:
   nameText: {fileID: 1363147369}
   priceText: {fileID: 1249672664}
   icon: {fileID: 1981817386}
-  cursorTexture: {fileID: 0}
+  cursorTexture: {fileID: 2800000, guid: 4fcfcfb3c33e4429a975b451cfef40fd, type: 3}
+  baseTexture: {fileID: 2800000, guid: 4fcfcfb3c33e4429a975b451cfef40fd, type: 3}
   cursorMode: 0
   hotSpot: {x: 1, y: 1}
 --- !u!1001 &793552089
@@ -1222,7 +1224,8 @@ MonoBehaviour:
   nameText: {fileID: 793552092}
   priceText: {fileID: 793552091}
   icon: {fileID: 793552093}
-  cursorTexture: {fileID: 0}
+  cursorTexture: {fileID: 2800000, guid: de7ac55f68ea94295a8b7c73bb38bd69, type: 3}
+  baseTexture: {fileID: 2800000, guid: de7ac55f68ea94295a8b7c73bb38bd69, type: 3}
   cursorMode: 0
   hotSpot: {x: 1, y: 1}
 --- !u!1 &794088957
@@ -1721,7 +1724,7 @@ MonoBehaviour:
   cornSeedPriceText: {fileID: 1249672664}
   beanSeedPriceText: {fileID: 290636437}
   riceSeedPriceText: {fileID: 793552091}
-  selectedPlant: 1
+  selectedPlant: 0
   cursorState: 0
   finishButton: {fileID: 61341709}
 --- !u!4 &1386064902

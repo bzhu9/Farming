@@ -125,6 +125,10 @@ public class TileController : MonoBehaviour
                 {
                     baseAttributes.nitrogen = Mathf.Clamp(baseAttributes.nitrogen - 1, 0, 3);
                 }
+                if (crop.type == TileType.BEANS)
+                {
+                    baseAttributes.nitrogen = Mathf.Clamp(baseAttributes.nitrogen + 1, 0, 3);
+                }
 
                 gc.SellCrop(crop.type);
                 Destroy(crop.gameObject);
@@ -144,10 +148,6 @@ public class TileController : MonoBehaviour
                 if (gc.BuyCrop(crop.type))
                 {
                     cropObject = crop.gameObject;
-                    if (crop.type == TileType.BEANS)
-                    {
-                        baseAttributes.nitrogen = Mathf.Clamp(baseAttributes.nitrogen + 1, 0, 3);
-                    }
                 }
                 break;
             }

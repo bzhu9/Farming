@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
     public const int gridSize = 5;
 
     private float money = 500;
-    private float goal = 700;
+    private float goal = 5000;
     public Text moneyText;
     public Text goalText;
     public Text cornPriceText;
