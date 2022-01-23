@@ -1,22 +1,22 @@
 # John's Farm
 ## Inspiration
-We were inspired by the man John Deere himself! His hard work for the farming industry inspirited us to create our very own farming game, called John's Farm, to commemorate him.
+We were inspired to create a fun, yet challenging, strategy game to simulate grrowing crops on a farm. We were also inspired to learn Unity and create a game from scratch with just the bare basics.
 
 ## Purpose
-We wanted to create a fun, yet challenging, strategy game to simulate grrowing crops on a farm. 
+The purpose of John's Farm is to simualate the different factors that go into real farming through a simpler, compact game. Despite having a fraction of the different factors that come along with maintaining a farm, John's Farm is already complex to a point where it is hard to establish a clear decision or strategy from the get go. This allows us to demonstrate the many different calculations that companies like John Deere need to go through to optimize their equipment.
 
 ## How we built it
-We designed our webpage with HTML, CSS, and Javascript. With python's Django framework, we served a SQLite database, which stores all the information for user login/registration and PeteCoin leaderboards. To query results from the SQLite database, we configured Django functions to read and write data to the local database.
+We designed our game using Unity and C#.
 
 ## Challenges
-With the specificity needed for our database queries needed, we had to dive deeper into the complexities of our database relations and learn how to manipulate the data to obtain the information that we needed. Additionally, we wanted our user's information to be secure; however, that required us to implement security measures on the database and login system, which we did not know how to use before. We learned how to applied the Django authentication system to hash passwords and keep the database secure.
+We built this game entirely using Unity, which we were unfamiliar with at the beginning. Some challenges we faced related to finding a way to change the prices of the crops and how to balance out the buy/sell ratio and the reward to time ratio for each crop. We wanted to make the game easy to pick up, but challenging to optimize the efficiency of crop growing. Another challenge we faced along the way was animating and presenting the sprites such that they would look good on multiple different screen resolutions. This way everyone could enjoy John’s Farm. 
 
 ## Accomplishments and what we learned
-We are proud of the UI that we created for the webpage and the leaderboard; we went for a simplistic design for both the home page and profile page, and we love how it turned out. In addition, we are proud to have implemented a SQLlite database to configure a secure login page and a dynamic site that refreshes the points leaderboard. As this is the first hackathon for the majority of our group, we learned a lot about the process of a hackathon and how to realize our ideas into code. Functionality wise, we learned more about web dev and introduction of the Django backend for most members of the group.
+We are proud of how the final UI of the game came out. It fit the retro vibe of our game and the graphics ran smoothly to present our final product. Without knowing much unity coming in to Boillermake, we are happy with the complexity and overall aesthetic we were able to introduce into the game. 
 
 ## What's next
-We would like to host the site in the cloud so that it is accessible to everyone (currently, the site can only be run on the local machine). Additionally, we want to add functionality that generates favors after each league ends to add an extra level to the challenge. We would also like to develop an updated and improved UI for the Login/Register, League selector and Challenge Selector pages and a system that verifies if contestants complete challenges.
+In the future, we would like to put John’s Farm onto a webpage to make it easily accessible to play. We would also like to add more crops and interactions between them, as well as difficulty modes to create a higher skill cap to the game. There are many different avenues that we can take to make John's Farm and we hope to explore some!
 
 
 ## Built With
-Python Django, HTML, CSS, Javascript, SQLite Database
+Unity and C#
