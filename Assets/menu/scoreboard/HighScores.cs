@@ -43,7 +43,7 @@ public class HighScores : MonoBehaviour
     IEnumerator DatabaseDownload()
     {
         //WWW www = new WWW(webURL + publicCode + "/pipe/"); //Gets the whole list
-        WWW www = new WWW(webURL + publicCode + "/pipe-seconds/0/5"); //Gets top 10
+        WWW www = new WWW(webURL + publicCode + "/pipe-asc/0/5"); //Gets top 10
         yield return www;
 
         if (string.IsNullOrEmpty(www.error))
