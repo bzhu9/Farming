@@ -18,16 +18,20 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (stopwatchActive == true) {
+        if (stopwatchActive == true)
+        {
             currentTime = currentTime + Time.deltaTime;
         }
-        TimeSpan time = TimeSpan.FromSeconds (currentTime);
+        Stats.seconds = (int)currentTime;
+        TimeSpan time = TimeSpan.FromSeconds(currentTime);
         currentTimeText.text = time.ToString(@"mm\:ss");
     }
-    public void StartStopwatch(){
+    public void StartStopwatch()
+    {
         stopwatchActive = true;
     }
-    public void StopStopwatch(){
+    public void StopStopwatch()
+    {
         stopwatchActive = false;
     }
 }

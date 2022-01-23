@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class GameController : MonoBehaviour
     public Text cornPriceText;
     public Text beanPriceText;
     public Text ricePriceText;
-    
+
 
     //timer
     public Text timer;
@@ -31,6 +32,7 @@ public class GameController : MonoBehaviour
 
     public TileType selectedPlant = TileType.EMPTY;
     public CursorType cursorState = CursorType.EMPTY;
+    public GameObject finishButton;
 
     private Color newRed = new Color(1, 0.3f, 0.3f);
     private Color newGreen = new Color(0.6f, 1, 0.6f);
@@ -74,6 +76,7 @@ public class GameController : MonoBehaviour
 
     void Start()
     {
+        finishButton.SetActive(false);
         // get width of prefab
         float size = gameTilePrefab.GetComponent<Renderer>().bounds.size.x;
 
@@ -103,7 +106,7 @@ public class GameController : MonoBehaviour
             {
                 GameObject bgTile = Instantiate(bgTilePrefab) as GameObject;
                 bgTile.transform.position = new Vector3(startX + r * size, startY + c * size, 1);
-                
+
                 // // add onclick
                 // bgTile.AddComponent(typeof(EventTrigger));
                 // EventTrigger trigger = bgTile.GetComponent<EventTrigger>();
@@ -367,6 +370,7 @@ public class GameController : MonoBehaviour
             string endTime = timer.text;
             Debug.Log("Congratulations!");
             Debug.Log(endTime);
+            finishButton.SetActive(true);
         }
     }
 
@@ -374,5 +378,10 @@ public class GameController : MonoBehaviour
     {
         Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
         selectedPlant = TileType.EMPTY;
+    }
+
+    public static void loadFinish()
+    {
+        SceneManager.LoadScene("menu/finish");
     }
 }
