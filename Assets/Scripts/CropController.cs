@@ -28,8 +28,8 @@ public class CropController : MonoBehaviour
         TileController.TileAttributes ta = tc.currAttributes;
         if (type == TileType.RICE)
         {
-            secondsPerStage = 3;
-            secondsPerStage -= Mathf.Lerp(0, 1.5f, ta.water / 5f);
+            secondsPerStage = 10;
+            secondsPerStage -= Mathf.Lerp(0, 3, ta.water / 5f);
         }
         else if (type == TileType.CORN)
         {
@@ -38,8 +38,8 @@ public class CropController : MonoBehaviour
         }
         else if (type == TileType.BEANS)
         {
-            secondsPerStage = 2;
-            secondsPerStage -= Mathf.Lerp(0, 1, ta.shade / 3f);
+            secondsPerStage = 5;
+            secondsPerStage -= Mathf.Lerp(0, 2, ta.shade / 3f);
         }
 
         secondsLeft = Mathf.Min(secondsLeft, secondsPerStage);

@@ -37,8 +37,8 @@ public class GameController : MonoBehaviour
 
     private Dictionary<TileType, float> prices = new Dictionary<TileType, float>()
     {
-        { TileType.RICE, 100 },
-        { TileType.CORN, 100 },
+        { TileType.RICE, 200 },
+        { TileType.CORN, 50 },
         { TileType.BEANS, 100 }
     };
 
@@ -180,7 +180,18 @@ public class GameController : MonoBehaviour
                 continue;
             }
             float priceMultiplier = Random.Range(70, 120) / 100f;
-            float currPrice = prices[type] * priceMultiplier / 1.4f;
+            if (type == TileType.CORN){
+                priceMultiplier = Random.Range(85, 110) / 100f;
+            }
+            else if (type == TileType.BEANS)
+            {
+                priceMultiplier = Random.Range(75, 110) / 100f;
+            }
+            else if (type == TileType.RICE)
+            {
+                priceMultiplier = Random.Range(60, 110) / 100f;
+            }
+            float currPrice = prices[type] * priceMultiplier / 1.2f;
             oldPrices[type] = seedPrices[type];
             seedPrices[type] = currPrice;
 
