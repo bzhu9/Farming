@@ -5,9 +5,14 @@ using UnityEngine;
 public class HighScores : MonoBehaviour
 {
     // to whoever is reading this: please don't mess with the leaderboards :(
-    const string privateCode = "YShytfTIzUqtT0os8ZqmQwZfIJVkM1a0aEynvVpl6u3g";  //Key to Upload New Info
-    const string publicCode = "61ecd8fb8f40bb1244005b01";   //Key to download
-    const string webURL = "https://worker.farmerjohns.tech/lb/"; //  Website the keys are for
+    // old leaderboards:
+    // const string privateCode = "YShytfTIzUqtT0os8ZqmQwZfIJVkM1a0aEynvVpl6u3g";  //Key to Upload New Info
+    // const string publicCode = "61ecd8fb8f40bb1244005b01";   //Key to download
+    // const string webURL = "https://dreamlo.exaphis.workers.dev/lb/"; //  Website the keys are for
+
+    const string privateCode = "fKK093wwgkaB_VBZTXOZLwJWahjHO2w0KW6A9anNcIEg";
+    const string publicCode = "65dba20f8f40bbbe889a94bf";
+    const string webURL = "https://wwww.dreamlo.com/lb/";
 
     public PlayerScore[] scoreList;
     DisplayHighscores myDisplay;

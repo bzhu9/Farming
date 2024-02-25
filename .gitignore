@@ -73,3 +73,4 @@ crashlytics-build.properties
 .vscode/
 mono_crash*
 .DS_Store
+new_build/
