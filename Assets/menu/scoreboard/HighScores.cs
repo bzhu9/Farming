@@ -12,7 +12,7 @@ public class HighScores : MonoBehaviour
 
     const string privateCode = "fKK093wwgkaB_VBZTXOZLwJWahjHO2w0KW6A9anNcIEg";
     const string publicCode = "65dba20f8f40bbbe889a94bf";
-    const string webURL = "https://wwww.dreamlo.com/lb/";
+    const string webURL = "https://www.dreamlo.com/lb/";
 
     public PlayerScore[] scoreList;
     DisplayHighscores myDisplay;
